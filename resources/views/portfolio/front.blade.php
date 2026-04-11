@@ -144,10 +144,10 @@ footer{
   <button>Enter Portfolio</button>
 </div>
 
-<div class="node n1">Projects</div>
-<div class="node n2">Skills</div>
-<div class="node n3">About</div>
-<div class="node n4">Contact</div>
+<a href="{{route('get.projects')}}"><div class="node n1">Projects</div></a>
+<a href="{{route('get.skills')}}"><div class="node n2">Skills</div></a>
+<a href="{{route('get.abouts')}}"><div class="node n3">About</div></a>
+<a href="{{route('get.contacts')}}"><div class="node n4">Contact</div></a>
 
 <footer>
   © 2026 3D World Portfolio

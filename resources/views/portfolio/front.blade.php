@@ -141,13 +141,13 @@ footer{
 
 <div class="center">
   <h1>Hi, I'm <span>Mandeep</span></h1>
-  <button>Enter Portfolio</button>
+
 </div>
 
 <a href="{{route('get.projects')}}"><div class="node n1">Projects</div></a>
-<a href="{{route('get.skills')}}"><div class="node n2">Skills</div></a>
+<a href="{{route('get.skills')}}"><div class="node n2">Skills & Education</div></a>
 <a href="{{route('get.abouts')}}"><div class="node n3">About</div></a>
-<a href="{{route('get.contacts')}}"><div class="node n4">Contact</div></a>
+<a href="{{route('get.contacts')}}"><div class="node n4">Experence&Contact</div></a>
 
 <footer>
   © 2026 3D World Portfolio

@@ -162,39 +162,46 @@
 
     <h1>My Projects</h1>
 
-    <div class="grid">
+   <div class="grid">
 
-        <!-- Siya Collection (Completed) -->
-        <div class="card">
-            <span class="status completed">Completed</span>
-            <h3>Siya Collection</h3>
-            <p>A fully developed cultural fashion website focused on Magar identity, blending tradition with modern UI design.</p>
+    @foreach($projects as $project)
 
-            <div class="tags">
-                <span class="tag">Laravel</span>
-                <span class="tag">Blade</span>
-                <span class="tag">UI Design</span>
-            </div>
+    <div class="card">
 
-            <a href="#" class="btn">View Project</a>
+        <!-- Status -->
+        <span class="status {{ $project->status == 'completed' ? 'completed' : 'progress' }}">
+            {{ ucfirst($project->status) }}
+        </span>
+
+        <!-- Title -->
+        <h3>{{ $project->title }}</h3>
+
+        <!-- Description -->
+        <p>{{ $project->description }}</p>
+
+        <!-- Tags (optional static for now) -->
+        <div class="tags">
+            <span class="tag">Laravel</span>
+            <span class="tag">Blade</span>
+            <span class="tag">Project</span>
         </div>
 
-        <!-- Magar Web (In Progress) -->
-        <div class="card">
-            <span class="status progress">In Progress</span>
-            <h3>Magar Web</h3>
-            <p>Currently building a modern web platform for Magar community showcasing culture, heritage, and digital presence.</p>
-
-            <div class="tags">
-                <span class="tag">Laravel</span>
-                <span class="tag">Development</span>
-                <span class="tag">Community</span>
-            </div>
-
-            <a href="#" class="btn disabled">Coming Soon</a>
-        </div>
+        <!-- Link -->
+        @if($project->link)
+            <a href="{{ $project->link }}" target="_blank" class="btn">
+                View Project
+            </a>
+        @else
+            <a href="#" class="btn disabled">
+                No Link
+            </a>
+        @endif
 
     </div>
+
+    @endforeach
+
+</div>
 
     <footer>
         © 2026 Mandeep Portfolio

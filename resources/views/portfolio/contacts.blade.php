@@ -1,12 +1,12 @@
-<!-- resources/views/contact.blade.php -->
+<!-- resources/views/contact-list.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Me</title>
+<title>Inbox - Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -17,7 +17,7 @@
 }
 
 body{
-    background:#05060a;
+    background:#070812;
     color:#e5e7eb;
 }
 
@@ -26,126 +26,144 @@ body{
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.2), transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(167,139,250,0.2), transparent 40%),
-        #05060a;
+        radial-gradient(circle at 20% 30%, rgba(56,189,248,0.12), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(167,139,250,0.12), transparent 45%),
+        #070812;
     z-index:-1;
 }
 
-/* CENTER WRAPPER */
-.wrapper{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px;
+/* HEADER */
+.header{
+    text-align:center;
+    padding:80px 20px 40px;
 }
 
-/* CARD */
-.card{
-    width:100%;
-    max-width:900px;
-    display:flex;
-    border-radius:25px;
-    overflow:hidden;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(20px);
-    box-shadow:0 30px 80px rgba(0,0,0,0.6);
-}
-
-/* LEFT SIDE */
-.left{
-    width:40%;
-    background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-    position:relative;
-}
-
-.left::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-}
-
-/* RIGHT SIDE */
-.right{
-    width:60%;
-    padding:50px;
-}
-
-/* TITLE */
-.right h1{
-    font-size:40px;
-    margin-bottom:10px;
+.header h1{
+    font-size:60px;
+    font-weight:800;
+    letter-spacing:-2px;
     background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);
     -webkit-background-clip:text;
     color:transparent;
 }
 
-.right p{
+.header p{
+    margin-top:10px;
     font-size:14px;
     color:#94a3b8;
-    margin-bottom:30px;
 }
 
-/* FORM */
-form{
+/* GRID WALL */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px 100px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+}
+
+/* CARD = STICKY GLASS NOTE */
+.card{
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px) rotate(0.3deg);
+    border-color:#38bdf8;
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* TOP TAG */
+.tag{
+    position:absolute;
+    top:12px;
+    right:12px;
+    font-size:10px;
+    padding:4px 10px;
+    border-radius:999px;
+    background:rgba(56,189,248,0.12);
+    color:#38bdf8;
+}
+
+/* NAME BIG */
+.card h2{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+/* INFO */
+.card p{
+    font-size:12.5px;
+    color:#94a3b8;
+    margin-bottom:4px;
+}
+
+/* MESSAGE BIG */
+.message{
+    margin-top:12px;
+    font-size:14px;
+    line-height:1.7;
+    color:#cbd5e1;
+    font-style:italic;
+    padding-top:10px;
+    border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* FOOTER */
+.footer{
+    margin-top:12px;
     display:flex;
-    flex-direction:column;
-    gap:15px;
+    justify-content:space-between;
+    align-items:center;
 }
 
-input, textarea{
-    padding:12px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.1);
-    background:rgba(255,255,255,0.05);
-    color:#e5e7eb;
-    outline:none;
-}
-
-textarea{
-    resize:none;
-    height:120px;
+/* STATUS */
+.status{
+    font-size:11px;
+    color:#10b981;
 }
 
 /* BUTTON */
-button{
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(90deg,#38bdf8,#a78bfa);
-    color:#000;
-    font-weight:700;
-    cursor:pointer;
-    transition:0.3s;
+.btn{
+    font-size:11px;
+    padding:6px 12px;
+    border-radius:10px;
+    background:transparent;
+    border:1px solid rgba(239,68,68,0.3);
+    color:#ef4444;
+    text-decoration:none;
+    transition:0.2s;
 }
 
-button:hover{
-    transform:scale(1.05);
+.btn:hover{
+    background:#ef4444;
+    color:#fff;
 }
 
-/* INFO BOX */
-.info{
-    margin-top:25px;
-    font-size:13px;
-    color:#94a3b8;
+/* FLOAT EFFECT VARIATION */
+.card:nth-child(odd){
+    transform:rotate(-0.3deg);
+}
+.card:nth-child(even){
+    transform:rotate(0.3deg);
 }
 
 /* RESPONSIVE */
-@media(max-width:800px){
-    .card{
-        flex-direction:column;
-    }
-
-    .left{
-        width:100%;
-        height:200px;
-    }
-
-    .right{
-        width:100%;
+@media(max-width:600px){
+    .header h1{
+        font-size:38px;
     }
 }
 </style>
@@ -155,32 +173,46 @@ button:hover{
 
 <div class="bg"></div>
 
-<div class="wrapper">
+<!-- HEADER -->
+<div class="header">
+
+    <h1>Inbox Wall</h1>
+
+    <p>
+        Messages from people who discovered my portfolio — displayed like creative notes.
+    </p>
+
+</div>
+
+<!-- GRID -->
+<div class="container">
+
+<div class="grid">
+
+@foreach($contacts as $contact)
 
 <div class="card">
 
-    <!-- IMAGE SIDE -->
-    <div class="left"></div>
+    <span class="tag">NEW</span>
 
-    <!-- FORM SIDE -->
-    <div class="right">
+    <h2>{{ $contact->name }}</h2>
 
-        <h1>Contact Me</h1>
-        <p>Let’s build something amazing together 🚀</p>
+    <p>📧 {{ $contact->email }}</p>
+    <p>📱 {{ $contact->whatsapp }}</p>
+    <p>🌐 {{ $contact->social }}</p>
 
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-
-        <div class="info">
-            📧 Email: mandeep@example.com <br>
-            📱 WhatsApp: +977-XXXXXXXXXX
-        </div>
-
+    <div class="message">
+        "{{ $contact->message }}"
     </div>
+
+    <div class="footer">
+        <span class="status">Received</span>
+        <a href="#" class="btn">Delete</a>
+    </div>
+
+</div>
+
+@endforeach
 
 </div>
 
